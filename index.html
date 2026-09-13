@@ -8,7 +8,7 @@
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:Arial,Helvetica,sans-serif;background:#6fd4e5}
 #langScreen{
- position:fixed;inset:0;z-index:999999;display:flex;align-items:center;justify-content:center;
+ position:fixed;inset:0;z-index:999999;display:none;align-items:center;justify-content:center;
  background:
  radial-gradient(circle at 18% 22%,#fff 0 35px,transparent 36px),
  radial-gradient(circle at 82% 18%,#fff 0 45px,transparent 46px),
@@ -27,7 +27,7 @@ button{
  font-size:22px;font-weight:1000;cursor:pointer;background:#ffd85a;
 }
 button:nth-child(1){background:#69bfff}
-button:nth-child(2){background:#ffd85a}
+button:nth-child(2){background:#9fc5ff}
 button:nth-child(3){background:#69df72}
 button:active{transform:translate(4px,4px);box-shadow:2px 2px 0 #111}
 #game{position:fixed;inset:0;width:100%;height:100%;border:0;display:none;background:white}
@@ -95,9 +95,9 @@ html,body{
    <div class="logo">🎵 INTERVAL <span>ARCADE</span></div>
    <div class="sub">CHOOSE LANGUAGE</div>
    <div class="buttons">
-     <button onclick="openLang('ua')">🇺🇦 UKR</button>
-     <button onclick="openLang('ru')">🇷🇺 RUS</button>
-     <button onclick="openLang('en')">🇬🇧 ENG</button>
+     <button onclick="openLang('ua')">UKR</button>
+     <button onclick="openLang('ru')">RUS</button>
+     <button onclick="openLang('en')">ENG</button>
    </div>
  </div>
 </div>
@@ -140,6 +140,10 @@ function applyDeviceClass(){
 applyDeviceClass();
 window.addEventListener("resize",applyDeviceClass,{passive:true});
 window.addEventListener("orientationchange",()=>setTimeout(applyDeviceClass,120),{passive:true});
+
+// Open the existing English six-mode menu immediately.
+// The LANGUAGE button still opens the original language chooser.
+openLang("en");
 
 </script>
 </body>
